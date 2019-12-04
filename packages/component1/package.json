@@ -1,0 +1,25 @@
+{
+  "name": "@react-lerna-yarn-workspace/component1",
+  "main": "dist/bundle.cjs.js",
+  "module": "dist/bundle.ems.js",
+  "types": "dist/index.d.ts",
+  "version": "0.0.1",
+  "description": "测试组件1",
+  "keywords": [
+    "demo",
+    "lerna"
+  ],
+  "license": "MIT",
+  "publishConfig": {
+    "access": "public"
+  },
+  "devDependencies": {
+    "@types/lodash-es": "^4.17.3",
+    "@types/react": "^16.9.14"
+  },
+  "dependencies": {
+    "lodash-es": "^4.17.15",
+    "react": "^16.12.0"
+  },
+  "repository": "https://github.com/BaoHaoYu/lerna-and-yarn-workspace/tree/master/packages/component1"
+}

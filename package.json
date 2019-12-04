@@ -1,0 +1,191 @@
+{
+  "name": "react-lerna-yarn-workspace",
+  "private": true,
+  "license": "MIT",
+  "description": "用 react + lerna + yarn workspace + rollup + storybook 进行包管理",
+  "keywords": [
+    "react",
+    "lerna",
+    "workspace",
+    "rollup",
+    "storybook"
+  ],
+  "workspaces": [
+    "packages/*"
+  ],
+  "scripts": {
+    "build:changed": "ts-node rollup.build.ts --type changed",
+    "build:all": "ts-node rollup.build.ts --type all",
+    "build:w": "rollup -c rollup.config.js -w",
+    "tslint": "tslint --fix packages/**/*{.ts,.tsx} .storybook/*.ts stories/**/*{.ts,.tsx} webpack-ts/**/* config/*.ts",
+    "stylelint": "stylelint --fix packages/**/*.scss",
+    "prettier": "prettier --write packages/**/*{.ts,.tsx}",
+    "release": "lerna publish --no-push",
+    "link": "lerna exec -- yarn link",
+    "updated": "lerna updated",
+    "storybook": "start-storybook -p 6006",
+    "build-storybook": "build-storybook",
+    "jest:generate-output": "jest --json --outputFile=.jest-test-results.json",
+    "jest": "jest table-layout.test --runInBand --watch"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "dependencies": {
+    "prop-types": "^15.7.2",
+    "react": "^16.12.0",
+    "react-dom": "^16.12.0"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.7.4",
+    "@babel/plugin-proposal-class-properties": "^7.7.4",
+    "@babel/plugin-proposal-decorators": "^7.7.4",
+    "@babel/plugin-syntax-dynamic-import": "^7.7.4",
+    "@babel/plugin-transform-modules-commonjs": "^7.7.4",
+    "@babel/preset-env": "^7.7.4",
+    "@babel/preset-react": "^7.7.4",
+    "@babel/preset-typescript": "^7.7.4",
+    "@storybook/addon-actions": "^5.2.8",
+    "@storybook/addon-info": "^5.2.8",
+    "@storybook/addon-jest": "^5.2.8",
+    "@storybook/addon-knobs": "^5.2.8",
+    "@storybook/addon-links": "^5.2.8",
+    "@storybook/addon-notes": "^5.2.8",
+    "@storybook/addon-storysource": "^5.2.8",
+    "@storybook/addons": "^5.2.8",
+    "@storybook/react": "^5.2.8",
+    "@types/debug": "^4.1.5",
+    "@types/enzyme": "^3.10.3",
+    "@types/enzyme-adapter-react-16": "^1.0.5",
+    "@types/fs-extra": "^8.0.1",
+    "@types/jest": "^24.0.23",
+    "@types/jsdom": "^12.2.4",
+    "@types/postcss-url": "^8.0.1",
+    "@types/react": "^16.9.14",
+    "@types/react-dom": "^16.9.4",
+    "@types/storybook__addon-info": "^5.2.1",
+    "@types/webpack": "^4.41.0",
+    "@types/yargs-parser": "^13.1.0",
+    "babel-loader": "^8.0.6",
+    "chalk": "^3.0.0",
+    "css-loader": "^3.2.1",
+    "debug": "^4.1.1",
+    "enzyme": "^3.10.0",
+    "enzyme-adapter-react-16": "^1.15.1",
+    "execa": "^3.4.0",
+    "file-loader": "^5.0.2",
+    "fs-extra": "^8.1.0",
+    "globby": "^10.0.1",
+    "husky": "^3.1.0",
+    "identity-obj-proxy": "^3.0.0",
+    "jest": "^24.9.0",
+    "jsdom": "^15.2.1",
+    "lerna": "^3.19.0",
+    "lint-staged": "^9.5.0",
+    "node-sass": "^4.13.0",
+    "normalize.css": "^8.0.1",
+    "postcss-loader": "^3.0.0",
+    "postcss-url": "^8.0.0",
+    "precss": "^4.0.0",
+    "prettier": "^1.19.1",
+    "react-hot-loader": "^4.12.18",
+    "rollup": "^1.27.8",
+    "rollup-plugin-commonjs": "^10.1.0",
+    "rollup-plugin-multi-entry": "^2.1.0",
+    "rollup-plugin-node-resolve": "^5.2.0",
+    "rollup-plugin-postcss": "^2.0.3",
+    "rollup-plugin-typescript2": "^0.25.3",
+    "sass-loader": "^8.0.0",
+    "style-loader": "^1.0.1",
+    "stylelint": "^12.0.0",
+    "stylelint-config-standard": "^19.0.0",
+    "stylelint-scss": "^3.13.0",
+    "ts-jest": "^24.2.0",
+    "ts-node": "^8.5.4",
+    "tsconfig-paths-webpack-plugin": "^3.2.0",
+    "tslint": "^5.20.1",
+    "tslint-config-prettier": "^1.18.0",
+    "tslint-config-standard": "^9.0.0",
+    "tslint-plugin-prettier": "^2.0.1",
+    "tslint-react": "^4.1.0",
+    "typescript": "^3.7.2",
+    "url": "^0.11.0",
+    "url-loader": "^3.0.0",
+    "webpack": "^4.41.2",
+    "yargs-parser": "^16.1.0"
+  },
+  "prettier": {
+    "trailingComma": "es5",
+    "printWidth": 80,
+    "semi": false,
+    "arrowParens": "always",
+    "useTabs": false,
+    "bracketSpacing": true,
+    "jsxBracketSameLine": false,
+    "tabWidth": 2,
+    "singleQuote": true
+  },
+  "stylelint": {
+    "extends": "stylelint-config-standard",
+    "plugins": [
+      "stylelint-scss"
+    ],
+    "rules": {
+      "declaration-block-trailing-semicolon": null,
+      "at-rule-no-unknown": [
+        true,
+        {
+          "ignoreAtRules": [
+            "function",
+            "if",
+            "else",
+            "each",
+            "return",
+            "include",
+            "mixin"
+          ]
+        }
+      ],
+      "scss/at-rule-no-unknown": true
+    }
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  },
+  "jest": {
+    "verbose": true,
+    "moduleFileExtensions": [
+      "ts",
+      "tsx",
+      "js"
+    ],
+    "moduleNameMapper": {
+      "\\.(css|less|scss|sss|styl)$": "identity-obj-proxy"
+    },
+    "transform": {
+      "^.+\\.js$": "babel-jest",
+      "\\.(ts|tsx)$": "<rootDir>/node_modules/ts-jest/preprocessor.js"
+    },
+    "testRegex": "/stories/*/.*\\.test\\.(ts|tsx|js)$",
+    "transformIgnorePatterns": [
+      "<rootDir>/node_modules/(?!(lodash-es|other-es-lib))"
+    ]
+  },
+  "lint-staged": {
+    "packages/**/*{.ts,.tsx}": "tslint --fix",
+    "stories/**/*{.ts,.tsx}": "tslint --fix",
+    ".storybook/*.ts": "tslint --fix",
+    "packages/**/*.scss": "stylelint --fix"
+  }
+}
