@@ -122,7 +122,7 @@
     "useTabs": false,
     "bracketSpacing": true,
     "jsxBracketSameLine": false,
-    "tabWidth": 2,
+    "tabWidth": 4,
     "singleQuote": true
   },
   "stylelint": {
