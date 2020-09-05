@@ -112,7 +112,7 @@
     "url": "^0.11.0",
     "url-loader": "^3.0.0",
     "webpack": "^4.41.2",
-    "yargs-parser": "^16.1.0"
+    "yargs-parser": "^18.1.2"
   },
   "prettier": {
     "trailingComma": "es5",
